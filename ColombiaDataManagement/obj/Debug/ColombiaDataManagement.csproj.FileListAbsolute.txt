@@ -7,3 +7,12 @@ C:\Users\Toño\Source\Repos\ColombiaDataManagement\ColombiaDataManagement\obj\De
 C:\Users\Toño\Source\Repos\ColombiaDataManagement\ColombiaDataManagement\obj\Debug\ColombiaDataManagement.csproj.CoreCompileInputs.cache
 C:\Users\Toño\Source\Repos\ColombiaDataManagement\ColombiaDataManagement\obj\Debug\ColombiaDataManagement.exe
 C:\Users\Toño\Source\Repos\ColombiaDataManagement\ColombiaDataManagement\obj\Debug\ColombiaDataManagement.pdb
+C:\Users\samue\Documents\VisualStudio\ColombiaDataManagement\bin\Debug\ColombiaDataManagement.exe.config
+C:\Users\samue\Documents\VisualStudio\ColombiaDataManagement\bin\Debug\ColombiaDataManagement.exe
+C:\Users\samue\Documents\VisualStudio\ColombiaDataManagement\bin\Debug\ColombiaDataManagement.pdb
+C:\Users\samue\Documents\VisualStudio\ColombiaDataManagement\obj\Debug\ColombiaDataManagement.csprojAssemblyReference.cache
+C:\Users\samue\Documents\VisualStudio\ColombiaDataManagement\obj\Debug\ColombiaDataManagement.Properties.Resources.resources
+C:\Users\samue\Documents\VisualStudio\ColombiaDataManagement\obj\Debug\ColombiaDataManagement.csproj.GenerateResource.cache
+C:\Users\samue\Documents\VisualStudio\ColombiaDataManagement\obj\Debug\ColombiaDataManagement.csproj.CoreCompileInputs.cache
+C:\Users\samue\Documents\VisualStudio\ColombiaDataManagement\obj\Debug\ColombiaDataManagement.exe
+C:\Users\samue\Documents\VisualStudio\ColombiaDataManagement\obj\Debug\ColombiaDataManagement.pdb
