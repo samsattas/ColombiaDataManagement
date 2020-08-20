@@ -1,0 +1,9 @@
+C:\Users\Toño\Source\Repos\ColombiaDataManagement\ColombiaDataManagement\bin\Debug\ColombiaDataManagement.exe.config
+C:\Users\Toño\Source\Repos\ColombiaDataManagement\ColombiaDataManagement\bin\Debug\ColombiaDataManagement.exe
+C:\Users\Toño\Source\Repos\ColombiaDataManagement\ColombiaDataManagement\bin\Debug\ColombiaDataManagement.pdb
+C:\Users\Toño\Source\Repos\ColombiaDataManagement\ColombiaDataManagement\obj\Debug\ColombiaDataManagement.csprojAssemblyReference.cache
+C:\Users\Toño\Source\Repos\ColombiaDataManagement\ColombiaDataManagement\obj\Debug\ColombiaDataManagement.Properties.Resources.resources
+C:\Users\Toño\Source\Repos\ColombiaDataManagement\ColombiaDataManagement\obj\Debug\ColombiaDataManagement.csproj.GenerateResource.cache
+C:\Users\Toño\Source\Repos\ColombiaDataManagement\ColombiaDataManagement\obj\Debug\ColombiaDataManagement.csproj.CoreCompileInputs.cache
+C:\Users\Toño\Source\Repos\ColombiaDataManagement\ColombiaDataManagement\obj\Debug\ColombiaDataManagement.exe
+C:\Users\Toño\Source\Repos\ColombiaDataManagement\ColombiaDataManagement\obj\Debug\ColombiaDataManagement.pdb
