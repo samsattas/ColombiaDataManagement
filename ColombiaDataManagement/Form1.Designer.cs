@@ -25,6 +25,12 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox municipiosMenu;
         private System.Windows.Forms.Button botonCargar;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Region;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dane;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Departamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DaneMunicipio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Municipio;
 
         #region Windows Form Designer generated code
 
