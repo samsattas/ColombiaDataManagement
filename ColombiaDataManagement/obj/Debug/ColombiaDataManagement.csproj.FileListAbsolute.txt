@@ -17,3 +17,4 @@ C:\Users\samue\Documents\VisualStudio\ColombiaDataManagement\obj\Debug\ColombiaD
 C:\Users\samue\Documents\VisualStudio\ColombiaDataManagement\obj\Debug\ColombiaDataManagement.exe
 C:\Users\samue\Documents\VisualStudio\ColombiaDataManagement\obj\Debug\ColombiaDataManagement.pdb
 C:\Users\samue\Documents\VisualStudio\ColombiaDataManagement\obj\Debug\ColombiaDataManagement.Form1.resources
+C:\Users\Toño\Source\Repos\ColombiaDataManagement\ColombiaDataManagement\obj\Debug\ColombiaDataManagement.Form1.resources
