@@ -21,6 +21,8 @@
         }
 
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
 
         #region Windows Form Designer generated code
 
@@ -29,9 +31,11 @@
         /// the contents of this method with the code editor.
         /// </summary>
         /// 
+
         /*
         private void InitializeComponent()
         {
+            
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -65,13 +69,13 @@
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
-
-        }
+            
+        }*/
 
         #endregion
 
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        */
+        //private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+
     }
-    #endregion
-}
+        
+    }
