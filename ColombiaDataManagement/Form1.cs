@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace ColombiaDataManagement
 {
@@ -23,6 +24,7 @@ namespace ColombiaDataManagement
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.municipiosMenu = new System.Windows.Forms.ComboBox();
+            this.botonCargar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -55,9 +57,20 @@ namespace ColombiaDataManagement
             this.municipiosMenu.Size = new System.Drawing.Size(121, 24);
             this.municipiosMenu.TabIndex = 2;
             // 
+            // botonCargar
+            // 
+            this.botonCargar.Location = new System.Drawing.Point(48, 24);
+            this.botonCargar.Name = "botonCargar";
+            this.botonCargar.Size = new System.Drawing.Size(75, 23);
+            this.botonCargar.TabIndex = 3;
+            this.botonCargar.Text = "cargar";
+            this.botonCargar.UseVisualStyleBackColor = true;
+            this.botonCargar.Click += new System.EventHandler(this.cargarInfo);
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(896, 449);
+            this.Controls.Add(this.botonCargar);
             this.Controls.Add(this.municipiosMenu);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
@@ -96,6 +109,16 @@ namespace ColombiaDataManagement
             {
                 textBox1.Text = openFileDialog1.FileName;
             }
+        }
+
+        //Este método se encarga de cargar la informacion del .CSV a la tabla
+        //cuando se oprime el botón "cargar"
+        private void cargarInfo(object sender, EventArgs e)
+        {
+           
+            string text = textBox1.Text;
+            MessageBox.Show(text);
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
