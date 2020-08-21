@@ -127,7 +127,7 @@ namespace ColombiaDataManagement
             // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(1169, 586);
+            this.ClientSize = new System.Drawing.Size(1924, 674);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.botonCargar);
             this.Controls.Add(this.municipiosMenu);
@@ -179,7 +179,7 @@ namespace ColombiaDataManagement
             string text = textBox1.Text;
             loadFile(text);
             //this.dataGridView1.Rows.Add("hola", "como", "estas", "tu", "hoy?");
-            MessageBox.Show(text);
+           
 
         }
 
@@ -189,12 +189,16 @@ namespace ColombiaDataManagement
             {
                 // Read a text file line by line.  
                 string[] lines = File.ReadAllLines(dir);
-                for(int i = 1; i < lines.Length; i++)
+                for (int i = 1; i < lines.Length; i++)
                 {
                     string[] aux = lines[i].Split(',');
                     this.dataGridView1.Rows.Add(aux[0], aux[1], aux[2], aux[3], aux[4]);
                 }
             }
+            else {
+                MessageBox.Show("por favor seleccione un archivo para cargar");
+            }
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -203,7 +207,7 @@ namespace ColombiaDataManagement
             municipiosMenu.Items.Add("a");
             municipiosMenu.Items.Add("b");
             */
-            string[] alph = { "A", "B", "C", "D","F", "G", "H", "I", "J", "K", "A", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y","Z" };
+            string[] alph = { "A", "B", "C", "D", "E","F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y", "Z" };
             for (int i=0; i< alph.Length; i++){
 
                 municipiosMenu.Items.Add(alph[i]);
