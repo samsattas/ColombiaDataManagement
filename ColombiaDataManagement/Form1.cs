@@ -31,6 +31,7 @@ namespace ColombiaDataManagement
             this.Departamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DaneMunicipio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Municipio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.botonFiltrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,8 +59,9 @@ namespace ColombiaDataManagement
             // 
             // municipiosMenu
             // 
+            this.municipiosMenu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.municipiosMenu.FormattingEnabled = true;
-            this.municipiosMenu.Location = new System.Drawing.Point(932, 22);
+            this.municipiosMenu.Location = new System.Drawing.Point(966, 22);
             this.municipiosMenu.Name = "municipiosMenu";
             this.municipiosMenu.Size = new System.Drawing.Size(121, 24);
             this.municipiosMenu.TabIndex = 2;
@@ -125,9 +127,20 @@ namespace ColombiaDataManagement
             this.Municipio.Name = "Municipio";
             this.Municipio.Width = 250;
             // 
+            // botonFiltrar
+            // 
+            this.botonFiltrar.Location = new System.Drawing.Point(976, 60);
+            this.botonFiltrar.Name = "botonFiltrar";
+            this.botonFiltrar.Size = new System.Drawing.Size(111, 23);
+            this.botonFiltrar.TabIndex = 5;
+            this.botonFiltrar.Text = "filtrar datos";
+            this.botonFiltrar.UseVisualStyleBackColor = true;
+            this.botonFiltrar.Click += new System.EventHandler(this.filterInformation);
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(1924, 674);
+            this.Controls.Add(this.botonFiltrar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.botonCargar);
             this.Controls.Add(this.municipiosMenu);
@@ -194,6 +207,11 @@ namespace ColombiaDataManagement
                     string[] aux = lines[i].Split(',');
                     this.dataGridView1.Rows.Add(aux[0], aux[1], aux[2], aux[3], aux[4]);
                 }
+
+                MessageBox.Show("archivo cargado de manera exitosa");
+
+                this.botonCargar.Enabled = false;
+               
             }
             else {
                 MessageBox.Show("por favor seleccione un archivo para cargar");
@@ -201,6 +219,10 @@ namespace ColombiaDataManagement
 
         }
 
+        private void filterInformation(object sender, EventArgs e) {
+            dataGridView1.Sort(dataGridView1.Columns[4],ListSortDirection.Ascending);
+            MessageBox.Show(municipiosMenu.Text);
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             /*
@@ -214,5 +236,6 @@ namespace ColombiaDataManagement
              
             }
         }
+
     }
 }
