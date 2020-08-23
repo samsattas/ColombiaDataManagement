@@ -13,13 +13,18 @@ namespace ColombiaDataManagement
 {
     public partial class Form1 : Form
     {
+        DataTable tabla;
         public Form1()
         {
             InitializeComponent();
+            iniciar();
         }
 
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -32,7 +37,9 @@ namespace ColombiaDataManagement
             this.DaneMunicipio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Municipio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.botonFiltrar = new System.Windows.Forms.Button();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -42,17 +49,17 @@ namespace ColombiaDataManagement
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(442, 19);
+            this.button1.Location = new System.Drawing.Point(21, 56);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 27);
+            this.button1.Size = new System.Drawing.Size(160, 27);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Select File";
+            this.button1.Text = "Seleccionar Archivo";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(62, 22);
+            this.textBox1.Location = new System.Drawing.Point(21, 21);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(374, 22);
             this.textBox1.TabIndex = 1;
@@ -61,36 +68,30 @@ namespace ColombiaDataManagement
             // 
             this.municipiosMenu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.municipiosMenu.FormattingEnabled = true;
-            this.municipiosMenu.Location = new System.Drawing.Point(966, 22);
+            this.municipiosMenu.Location = new System.Drawing.Point(454, 21);
             this.municipiosMenu.Name = "municipiosMenu";
-            this.municipiosMenu.Size = new System.Drawing.Size(121, 24);
+            this.municipiosMenu.Size = new System.Drawing.Size(89, 24);
             this.municipiosMenu.TabIndex = 2;
             // 
             // botonCargar
             // 
-            this.botonCargar.Location = new System.Drawing.Point(535, 20);
+            this.botonCargar.Location = new System.Drawing.Point(230, 57);
             this.botonCargar.Name = "botonCargar";
             this.botonCargar.Size = new System.Drawing.Size(116, 26);
             this.botonCargar.TabIndex = 3;
-            this.botonCargar.Text = "Load this file";
+            this.botonCargar.Text = "cargar archivo";
             this.botonCargar.UseVisualStyleBackColor = true;
             this.botonCargar.Click += new System.EventHandler(this.cargarInfo);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Region,
-            this.Dane,
-            this.Departamento,
-            this.DaneMunicipio,
-            this.Municipio});
-            this.dataGridView1.Location = new System.Drawing.Point(62, 89);
+            this.dataGridView1.Location = new System.Drawing.Point(21, 89);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowHeadersWidth = 100;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1033, 369);
-            this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.Size = new System.Drawing.Size(720, 369);
+            this.dataGridView1.TabIndex = 5;
             // 
             // Region
             // 
@@ -129,17 +130,35 @@ namespace ColombiaDataManagement
             // 
             // botonFiltrar
             // 
-            this.botonFiltrar.Location = new System.Drawing.Point(976, 60);
+            this.botonFiltrar.Location = new System.Drawing.Point(454, 60);
             this.botonFiltrar.Name = "botonFiltrar";
-            this.botonFiltrar.Size = new System.Drawing.Size(111, 23);
+            this.botonFiltrar.Size = new System.Drawing.Size(89, 23);
             this.botonFiltrar.TabIndex = 5;
             this.botonFiltrar.Text = "filtrar datos";
             this.botonFiltrar.UseVisualStyleBackColor = true;
             this.botonFiltrar.Click += new System.EventHandler(this.filterInformation);
             // 
+            // chart1
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(837, 89);
+            this.chart1.Name = "chart1";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(753, 460);
+            this.chart1.TabIndex = 6;
+            this.chart1.Text = "chart1";
+            this.chart1.Click += new System.EventHandler(this.chart1_Click);
+            // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(1924, 674);
+            this.ClientSize = new System.Drawing.Size(1628, 674);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.botonFiltrar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.botonCargar);
@@ -149,6 +168,7 @@ namespace ColombiaDataManagement
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,9 +211,18 @@ namespace ColombiaDataManagement
            
             string text = textBox1.Text;
             loadFile(text);
-            //this.dataGridView1.Rows.Add("hola", "como", "estas", "tu", "hoy?");
-           
+            
+          
+        }
 
+        private void iniciar() {
+            tabla = new DataTable();
+            tabla.Columns.Add("Region");
+            tabla.Columns.Add("Codigo DANE departamento");
+            tabla.Columns.Add("Departamento");
+            tabla.Columns.Add("Codigo DANE municipio");
+            tabla.Columns.Add("Municipio");
+            dataGridView1.DataSource = tabla;
         }
 
         private void loadFile(string dir)
@@ -205,7 +234,15 @@ namespace ColombiaDataManagement
                 for (int i = 1; i < lines.Length; i++)
                 {
                     string[] aux = lines[i].Split(',');
-                    this.dataGridView1.Rows.Add(aux[0], aux[1], aux[2], aux[3], aux[4]);
+                    //this.dataGridView1.Rows.Add(aux[0], aux[1], aux[2], aux[3], aux[4]);
+                    DataRow fila = tabla.NewRow();
+                    fila[0] = aux[0];
+                    fila[1] = aux[1];
+                    fila[2] = aux[2];
+                    fila[3] = aux[3];
+                    fila[4] = aux[4];
+                    .Equals("Antioquia");
+                    tabla.Rows.Add(fila);
                 }
 
                 MessageBox.Show("archivo cargado de manera exitosa");
@@ -220,16 +257,18 @@ namespace ColombiaDataManagement
         }
 
         private void filterInformation(object sender, EventArgs e) {
-            dataGridView1.Sort(dataGridView1.Columns[4],ListSortDirection.Ascending);
-            MessageBox.Show(municipiosMenu.Text);
+
+          
+            
+            tabla.DefaultView.RowFilter = $"Municipio LIKE '{municipiosMenu.Text}%'";
+
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            /*
-            municipiosMenu.Items.Add("a");
-            municipiosMenu.Items.Add("b");
-            */
-            string[] alph = { "A", "B", "C", "D", "E","F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y", "Z" };
+          
+            
+             string[] alph = { "A", "B", "C", "D", "E","F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y", "Z" };
+          //  string[] alph = {"Antioquia","Santander","Cundinamarca"};
             for (int i=0; i< alph.Length; i++){
 
                 municipiosMenu.Items.Add(alph[i]);
@@ -237,5 +276,9 @@ namespace ColombiaDataManagement
             }
         }
 
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

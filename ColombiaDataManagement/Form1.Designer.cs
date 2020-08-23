@@ -32,6 +32,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DaneMunicipio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Municipio;
         private System.Windows.Forms.Button botonFiltrar;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
 
         #region Windows Form Designer generated code
 
