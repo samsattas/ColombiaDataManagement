@@ -278,7 +278,7 @@ namespace ColombiaDataManagement
 
                 this.chart1.Titles.Clear();
                 this.chart1.Titles.Add("Departamentos por region");
-
+                
                 for(int i = 0; i < regions.Count; i++)
                 {
                     Series s = this.chart1.Series.Add(regions[i]);
