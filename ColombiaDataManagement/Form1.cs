@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Windows.Forms.DataVisualization.Charting;
+using System.Collections;
 
 namespace ColombiaDataManagement
 {
@@ -22,9 +24,8 @@ namespace ColombiaDataManagement
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -140,24 +141,24 @@ namespace ColombiaDataManagement
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(837, 89);
+            this.chart1.BackColor = System.Drawing.Color.Silver;
+            this.chart1.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Left;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.Cursor = System.Windows.Forms.Cursors.Cross;
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(747, 89);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(753, 460);
+            this.chart1.Size = new System.Drawing.Size(604, 369);
             this.chart1.TabIndex = 6;
             this.chart1.Text = "chart1";
             this.chart1.Click += new System.EventHandler(this.chart1_Click);
             // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(1628, 674);
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.ClientSize = new System.Drawing.Size(1387, 522);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.botonFiltrar);
             this.Controls.Add(this.dataGridView1);
@@ -212,7 +213,9 @@ namespace ColombiaDataManagement
             string text = textBox1.Text;
             loadFile(text);
             
-          
+            //chart1_Click(sender, e);
+
+
         }
 
         private void iniciar() {
@@ -222,30 +225,75 @@ namespace ColombiaDataManagement
             tabla.Columns.Add("Departamento");
             tabla.Columns.Add("Codigo DANE municipio");
             tabla.Columns.Add("Municipio");
+
             dataGridView1.DataSource = tabla;
+
         }
 
         private void loadFile(string dir)
         {
+            List<string> regions = new List<string>();
+            ArrayList dep = new ArrayList();
+            List<int> depCount = new List<int>();
             if (File.Exists(dir))
             {
                 // Read a text file line by line.  
                 string[] lines = File.ReadAllLines(dir);
                 for (int i = 1; i < lines.Length; i++)
                 {
+                    //going per line
+
+                    //split the line by ","
                     string[] aux = lines[i].Split(',');
-                    //this.dataGridView1.Rows.Add(aux[0], aux[1], aux[2], aux[3], aux[4]);
                     DataRow fila = tabla.NewRow();
                     fila[0] = aux[0];
                     fila[1] = aux[1];
                     fila[2] = aux[2];
                     fila[3] = aux[3];
                     fila[4] = aux[4];
-                    .Equals("Antioquia");
                     tabla.Rows.Add(fila);
+                    if (!regions.Contains(aux[0]))
+                    {
+                        regions.Add(aux[0]);
+                        depCount.Add(0);
+                    }
+
+                    if (!dep.Contains(aux[2]))
+                    {
+                        for (int j = 0; j < regions.Count; j++)
+                        {
+                            if (aux[0].Equals(regions[j])){
+                                depCount[j] ++;
+                            }
+                            
+                        }
+                    }
+
+
+
+                    
+
                 }
 
-                MessageBox.Show("archivo cargado de manera exitosa");
+
+                this.chart1.Titles.Clear();
+                this.chart1.Titles.Add("Departamentos por region");
+
+                for(int i = 0; i < regions.Count; i++)
+                {
+                    Series s = this.chart1.Series.Add(regions[i]);
+                    s.Points.Add(depCount[i]);
+                }
+
+                //Series s = this.chart1.Series.Add("hola");
+                //s.Points.Add(10);
+                /*
+                this.chart1.Series["Series1"].XValueMember = "Regiones";
+                this.chart1.Series["Series1"].YValueMembers = "Departamentos";
+                this.chart1.DataSource = dataGridView1;
+                this.chart1.DataBind();
+                */
+                MessageBox.Show("Archivo cargado exitosamente.");
 
                 this.botonCargar.Enabled = false;
                
@@ -278,7 +326,13 @@ namespace ColombiaDataManagement
 
         private void chart1_Click(object sender, EventArgs e)
         {
+            //this.chart1.Series["Series1"].ChartType = SeriesChartType.Bar;
+            this.chart1.Titles.Clear();
+            this.chart1.Titles.Add("Departamentos por region");
+            Series s = this.chart1.Series.Add("hola");
+            s.Points.Add(10);
 
+            
         }
     }
 }
